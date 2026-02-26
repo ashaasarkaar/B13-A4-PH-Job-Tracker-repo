@@ -28,13 +28,13 @@ function changeTab(tab) {
         webpage.classList.add('hidden');
     }
     //remove hidden class from the clickable tabs or pages
-    if(tab === 'all'){
+    if (tab === 'all') {
         allContainer.classList.remove('hidden');
     }
-    else if(tab === 'interview'){
+    else if (tab === 'interview') {
         interviewContainer.classList.remove('hidden');
     }
-    else{
+    else {
         rejectedContainer.classList.remove('hidden');
     }
 }
@@ -48,31 +48,37 @@ const totalCount = getId('total-count');
 const interviewCount = getId('interview-count');
 const rejectedCount = getId('Rejected-count');
 
-totalCount.innerText = allContainer.children.length;
-interviewCount.innerText = interviewContainer.children.length;
-rejectedCount.innerText = rejectedContainer.children.length;
 
 //three buttons work inside card + also changed buttons name after clicking + dashboard update(reject + interview)
 document.getElementById("parent-container")
-.addEventListener('click', function(event){
-    const clickElement = event.target;
-    const card = clickElement.closest(".card");
-    const parent = card.parentNode;
-    const changeStatus = card.querySelector(".change-status")
-    
-    if(clickElement.classList.contains("interview")){
-        changeStatus.innerText = "Interviewed";
-        interviewContainer.appendChild(card);
-    }
-      if(clickElement.classList.contains("reject")){
-        changeStatus.innerText = "Rejected";
-        rejectedContainer.appendChild(card);
-    }
-      if(clickElement.classList.contains("delete")){
-       parent.removeChild(card);
-    }
-})
+    .addEventListener('click', function (event) {
+        const clickElement = event.target;
+        const card = clickElement.closest(".card");
+        const parent = card.parentNode;
+        const changeStatus = card.querySelector(".change-status");
+
+        if (clickElement.classList.contains("interview")) {
+            changeStatus.innerText = "Interviewed";
+            interviewContainer.appendChild(card);
+            updateDashboard();
+        }
+        if (clickElement.classList.contains("reject")) {
+            changeStatus.innerText = "Rejected";
+            rejectedContainer.appendChild(card);
+            updateDashboard();
+        }
+        if (clickElement.classList.contains("delete")) {
+            parent.removeChild(card);
+            updateDashboard();
+        }
+    })
 
 // finally all the dashboard update
+function updateDashboard() {
+    totalCount.innerText = allContainer.children.length;
+    interviewCount.innerText = interviewContainer.children.length;
+    rejectedCount.innerText = rejectedContainer.children.length;
+}
 
+updateDashboard();
 
