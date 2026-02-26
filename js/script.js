@@ -2,11 +2,16 @@
 const activeTab = ["bg-blue-600", "text-white"];
 const inactiveTab = ["bg-transparent", "text-neutral/50"];
 
+//cards section toggle between three three TABS
+const allContainer = getId('all-container');
+const interviewContainer = getId('interview-container');
+const rejectedContainer = getId('rejected-container');
+
 function changeTab(tab) {
     const tabs = ['all', 'interview', 'rejected'];
 
-    for(const btn of tabs) {
-        const tabName = document.getElementById("tab-" + btn);
+    for (const btn of tabs) {
+        const tabName = getId("tab-" + btn);
         if (btn === tab) {
             tabName.classList.remove(...inactiveTab);
             tabName.classList.add(...activeTab);
@@ -16,8 +21,38 @@ function changeTab(tab) {
             tabName.classList.add(...inactiveTab);
         }
     }
+
+    //initially hidden all the webpages
+    const webpages = [allContainer, interviewContainer, rejectedContainer];
+    for (const webpage of webpages) {
+        webpage.classList.add('hidden');
+    }
+    //remove hidden class from the clickable tabs or pages
+    if(tab === 'all'){
+        allContainer.classList.remove('hidden');
+    }
+    else if(tab === 'interview'){
+        interviewContainer.classList.remove('hidden');
+    }
+    else{
+        rejectedContainer.classList.remove('hidden');
+    }
 }
 
 //All tab set as a defalut tabs
 let defaultTab = 'all';
-changeTab(defaultTab); 
+changeTab(defaultTab);
+
+//Dashboard count Update
+const totalCount = getId('total-count');
+const interviewCount = getId('interview-count');
+const rejectedCount = getId('Rejected-count');
+
+totalCount.innerText = allContainer.children.length;
+interviewCount.innerText = interviewContainer.children.length;
+rejectedCount.innerText = rejectedContainer.children.length;
+
+//three buttons work inside card + also changed buttons name after clicking + dashboard update(reject + interview)
+
+
+

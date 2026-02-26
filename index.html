@@ -43,7 +43,7 @@
             <div class="card bg-base-100 shadow-sm">
                 <div class="card-body">
                     <h2 class="font-medium">Total</h2>
-                    <p id="total-count" class="text-neutral-950 font-bold text-xl">8</p>
+                    <p id="total-count" class="text-neutral-950 font-bold text-xl">0</p>
                 </div>
             </div>
 
@@ -101,8 +101,8 @@
         <!-- Tab Button Section END -->
     </section>
 
-    <!-- Card Section START -->
-    <section class="cards-container w-10/12 mx-auto pt-8 space-y-5 pb-16">
+    <!--All Card Section START -->
+    <section id="all-container" class="cards-container w-10/12 mx-auto pt-8 space-y-5 pb-16 hidden">
 
         <!-- Card-1 START -->
         <div class="card w-full bg-base-100 shadow-lg
@@ -284,7 +284,23 @@
         <!-- Card-8 END -->
 
     </section>
-    <!-- Card Section START -->
+    <!--All Card Section START -->
+
+    <!-- InterView Section START -->
+    <section id="interview-container" class="interview-cards-container w-10/12 mx-auto pt-8 space-y-5 pb-16 hidden">
+
+        <h2 class="card-title">Interview</h2>
+
+    </section>
+    <!-- Interview Section END -->
+
+    <!-- Rejected Section START -->
+    <section id="rejected-container" class="rejected-cards-container w-10/12 mx-auto pt-8 space-y-5 pb-16 hidden">
+
+        <h2 class="card-title">Rejected</h2>
+
+    </section>
+    <!-- Rejected Section END -->
 
     <!-- Empty Section START -->
     <section class="empty-section-container w-10/12 mx-auto pt-8 pb-16 hidden">
@@ -296,8 +312,8 @@
                 <div class="text-center">
                     <img src="./images/jobs.png" alt="no-jobs-icon">
                 </div>
-                    <h2 class="card-title">No jobs available</h2>
-                    <p class="text-neutral/50">Check back soon for new job opportunities</p>
+                <h2 class="card-title">No jobs available</h2>
+                <p class="text-neutral/50">Check back soon for new job opportunities</p>
             </div>
         </div>
     </section>
@@ -305,7 +321,8 @@
 
 
     <!-- link with js file -->
-     <script src="./js/script.js"></script>
+    <script src="./js/machine.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
