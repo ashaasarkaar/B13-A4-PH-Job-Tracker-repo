@@ -6,6 +6,7 @@ const inactiveTab = ["bg-transparent", "text-neutral/50"];
 const allContainer = getId('all-container');
 const interviewContainer = getId('interview-container');
 const rejectedContainer = getId('rejected-container');
+const emptyContainer = getId('empty-container');
 
 function changeTab(tab) {
     const tabs = ['all', 'interview', 'rejected'];
@@ -22,6 +23,8 @@ function changeTab(tab) {
         }
     }
 
+    // emptyContainer.classList.add("hidden");
+    
     //initially hidden all the webpages
     const webpages = [allContainer, interviewContainer, rejectedContainer];
     for (const webpage of webpages) {
@@ -30,12 +33,21 @@ function changeTab(tab) {
     //remove hidden class from the clickable tabs or pages
     if (tab === 'all') {
         allContainer.classList.remove('hidden');
+        if(allContainer.children.length < 1){
+            emptyContainer.classList.remove("hidden");
+        }
     }
     else if (tab === 'interview') {
         interviewContainer.classList.remove('hidden');
+         if(interviewContainer.children.length < 1){
+            emptyContainer.classList.remove("hidden");
+        }
     }
     else {
         rejectedContainer.classList.remove('hidden');
+        if(rejectedContainer.children.length < 1){
+            emptyContainer.classList.remove("hidden");
+        }
     }
 }
 
