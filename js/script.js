@@ -53,9 +53,26 @@ interviewCount.innerText = interviewContainer.children.length;
 rejectedCount.innerText = rejectedContainer.children.length;
 
 //three buttons work inside card + also changed buttons name after clicking + dashboard update(reject + interview)
-document.getElementById('parent')
+document.getElementById("parent-container")
 .addEventListener('click', function(event){
     const clickElement = event.target;
+    const card = clickElement.closest(".card");
+    const parent = card.parentNode;
+    const changeStatus = card.querySelector(".change-status")
+    
+    if(clickElement.classList.contains("interview")){
+        changeStatus.innerText = "Interviewed";
+        interviewContainer.appendChild(card);
+    }
+      if(clickElement.classList.contains("reject")){
+        changeStatus.innerText = "Rejected";
+        rejectedContainer.appendChild(card);
+    }
+      if(clickElement.classList.contains("delete")){
+       parent.removeChild(card);
+    }
 })
+
+// finally all the dashboard update
 
 
