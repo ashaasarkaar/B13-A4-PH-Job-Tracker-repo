@@ -112,6 +112,13 @@ function updateDashboard() {
     // availableJobsCount.innerText = counts.all;
     availableJobsCount.innerText = counts[defaultTab];
 
+    if(counts[defaultTab] < 1){
+        emptyContainer.classList.remove("hidden");
+    }
+    else{
+        emptyContainer.classList.add("hidden");
+    }
+
 }
 
 updateDashboard();
