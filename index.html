@@ -86,17 +86,17 @@
     <section class="tab-btns-container w-10/12 mx-auto pt-8 flex gap-5">
         <!-- All tab-btn -->
         <div>
-            <button class="btn text-[#64748B]">All</button>
+            <button id="tab-all" onclick="changeTab('all')" class="btn text-[#64748B]">All</button>
         </div>
 
         <!-- Interview Tab-btn -->
         <div>
-            <button class="btn text-[#64748B]">Interview</button>
+            <button id="tab-interview" onclick="changeTab('interview')" class="btn text-[#64748B]">Interview</button>
         </div>
 
         <!-- Rejectted tab-btn -->
         <div>
-            <button class="btn text-neutral/50">Rejected</button>
+            <button id="tab-rejected" onclick="changeTab('rejected')" class="btn text-neutral/50">Rejected</button>
         </div>
         <!-- Tab Button Section END -->
     </section>
@@ -116,7 +116,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of
+                <p class="text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products
+                    used by millions of
                     users worldwide.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
@@ -138,7 +139,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                <p class="text-[#323B49]">Create stunning web experiences for high-profile clients. Must have portfolio
+                    and experience with modern web design trends.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -159,7 +161,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
+                <p class="text-[#323B49]">Transform complex data into compelling visualizations. Required skills: D3.js,
+                    React, and strong analytical thinking.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -180,7 +183,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
+                <p class="text-[#323B49]">Design and maintain scalable backend systems using Python and AWS. Work with
+                    modern DevOps practices and cloud infrastructure.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -201,7 +205,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
+                <p class="text-[#323B49]">Create beautiful and functional user interfaces for our suite of products.
+                    Strong design skills and frontend development expertise required.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -222,7 +227,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
+                <p class="text-[#323B49]">Build enterprise applications with JavaScript and modern frameworks. We offer
+                    competitive compensation, health insurance, and professional development opportunities.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -243,7 +249,8 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
+                <p class="text-[#323B49]">Join our fast-growing startup and work on our core platform. Experience with
+                    Node.js and React required. Great benefits and equity package included.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -265,7 +272,9 @@
                 <div>
                     <button class="btn bg-gray-300">Not Applied</button>
                 </div>
-                <p class="text-[#323B49]">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                <p class="text-[#323B49]">We are looking for an experienced Frontend Developer to build scalable web
+                    applications using React and TypeScript. You will work with a talented team on cutting-edge
+                    projects.</p>
                 <div class="btns flex gap-4">
                     <button class="btn btn-success btn-outline">interview</button>
                     <button class="btn btn-error btn-outline">Rejected</button>
@@ -275,8 +284,28 @@
         <!-- Card-8 END -->
 
     </section>
+    <!-- Card Section START -->
+
+    <!-- Empty Section START -->
+    <section class="empty-section-container w-10/12 mx-auto pt-8 pb-16 hidden">
+        <div class="card w-full bg-base-100 shadow-lg
+              border-l-4 border-[#3B82F6]
+              transition-all duration-300
+              hover:-translate-y-2 hover:shadow-2xl">
+            <div class="card-body space-y-2 items-center">
+                <div class="text-center">
+                    <img src="./images/jobs.png" alt="no-jobs-icon">
+                </div>
+                    <h2 class="card-title">No jobs available</h2>
+                    <p class="text-neutral/50">Check back soon for new job opportunities</p>
+            </div>
+        </div>
+    </section>
+    <!-- Empty Section END -->
 
 
+    <!-- link with js file -->
+     <script src="./js/script.js"></script>
 </body>
 
 </html>
