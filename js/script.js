@@ -1,3 +1,7 @@
+//All tab set as a defalut tabs
+let defaultTab = 'all';
+
+
 //Toggle between three tabs
 const activeTab = ["bg-blue-600", "text-white"];
 const inactiveTab = ["bg-transparent", "text-neutral/50"];
@@ -7,9 +11,11 @@ const allContainer = getId('all-container');
 const interviewContainer = getId('interview-container');
 const rejectedContainer = getId('rejected-container');
 const emptyContainer = getId('empty-container');
+const availableJobsCount = getId('available-jobs-count');
 
 function changeTab(tab) {
     const tabs = ['all', 'interview', 'rejected'];
+    defaultTab = tab;
 
     for (const btn of tabs) {
         const tabName = getId("tab-" + btn);
@@ -24,7 +30,7 @@ function changeTab(tab) {
     }
 
     // emptyContainer.classList.add("hidden");
-    
+
     //initially hidden all the webpages
     const webpages = [allContainer, interviewContainer, rejectedContainer];
     for (const webpage of webpages) {
@@ -49,10 +55,9 @@ function changeTab(tab) {
             emptyContainer.classList.remove("hidden");
         }
     }
+    updateDashboard();
 }
 
-//All tab set as a defalut tabs
-let defaultTab = 'all';
 changeTab(defaultTab);
 
 //Dashboard count Update
@@ -85,11 +90,28 @@ document.getElementById("parent-container")
         }
     })
 
+    
+
 // finally all the dashboard update
 function updateDashboard() {
-    totalCount.innerText = allContainer.children.length;
-    interviewCount.innerText = interviewContainer.children.length;
-    rejectedCount.innerText = rejectedContainer.children.length;
+
+    // totalCount.innerText = allContainer.children.length;
+    // interviewCount.innerText = interviewContainer.children.length;
+    // rejectedCount.innerText = rejectedContainer.children.length;
+
+    const counts = {
+        all: allContainer.children.length,
+        interview: interviewContainer.children.length,
+        rejected: rejectedContainer.children.length,
+    };
+
+    totalCount.innerText = counts["all"]; 
+    interviewCount.innerText = counts["interview"];
+    rejectedCount.innerText = counts["rejected"];
+
+    // availableJobsCount.innerText = counts.all;
+    availableJobsCount.innerText = counts[defaultTab];
+
 }
 
 updateDashboard();
