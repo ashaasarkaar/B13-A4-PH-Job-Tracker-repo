@@ -53,6 +53,9 @@ interviewCount.innerText = interviewContainer.children.length;
 rejectedCount.innerText = rejectedContainer.children.length;
 
 //three buttons work inside card + also changed buttons name after clicking + dashboard update(reject + interview)
-
+document.getElementById('parent')
+.addEventListener('click', function(event){
+    const clickElement = event.target;
+})
 
 
