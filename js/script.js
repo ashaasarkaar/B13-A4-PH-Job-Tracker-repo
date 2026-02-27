@@ -1,7 +1,6 @@
 //All tab set as a defalut tabs
 let defaultTab = 'all';
 
-
 //Toggle between three tabs
 const activeTab = ["bg-blue-600", "text-white"];
 const inactiveTab = ["bg-transparent", "text-neutral/50"];
@@ -11,7 +10,7 @@ const allContainer = getId('all-container');
 const interviewContainer = getId('interview-container');
 const rejectedContainer = getId('rejected-container');
 const emptyContainer = getId('empty-container');
-const availableJobsCount = getId('available-jobs-count');
+
 
 function changeTab(tab) {
     const tabs = ['all', 'interview', 'rejected'];
@@ -27,9 +26,10 @@ function changeTab(tab) {
             tabName.classList.remove(...activeTab);
             tabName.classList.add(...inactiveTab);
         }
+
     }
 
-    // emptyContainer.classList.add("hidden");
+    emptyContainer.classList.add("hidden");
 
     //initially hidden all the webpages
     const webpages = [allContainer, interviewContainer, rejectedContainer];
@@ -39,32 +39,34 @@ function changeTab(tab) {
     //remove hidden class from the clickable tabs or pages
     if (tab === 'all') {
         allContainer.classList.remove('hidden');
-        if(allContainer.children.length < 1){
+        if (allContainer.children.length < 1) {
             emptyContainer.classList.remove("hidden");
         }
     }
     else if (tab === 'interview') {
         interviewContainer.classList.remove('hidden');
-         if(interviewContainer.children.length < 1){
+        if (interviewContainer.children.length < 1) {
             emptyContainer.classList.remove("hidden");
+
         }
     }
     else {
         rejectedContainer.classList.remove('hidden');
-        if(rejectedContainer.children.length < 1){
+        if (rejectedContainer.children.length < 1) {
             emptyContainer.classList.remove("hidden");
+
         }
     }
-    updateDashboard();
-}
 
-changeTab(defaultTab);
+    updateDashboard();
+
+}
 
 //Dashboard count Update
 const totalCount = getId('total-count');
 const interviewCount = getId('interview-count');
 const rejectedCount = getId('Rejected-count');
-
+const availableJobsCount = getId('available-jobs-count');
 
 //three buttons work inside card + also changed buttons name after clicking + dashboard update(reject + interview)
 document.getElementById("parent-container")
@@ -75,29 +77,28 @@ document.getElementById("parent-container")
         const changeStatus = card.querySelector(".change-status");
 
         if (clickElement.classList.contains("interview")) {
+            changeStatus.style.backgroundColor = "lightgreen";
             changeStatus.innerText = "Interviewed";
             interviewContainer.appendChild(card);
-            updateDashboard();
+            card.style.borderLeft = "4px solid lightgreen";
+
         }
         if (clickElement.classList.contains("reject")) {
+            changeStatus.style.backgroundColor = "lightcoral";
             changeStatus.innerText = "Rejected";
             rejectedContainer.appendChild(card);
-            updateDashboard();
+            card.style.borderLeft = "4px solid lightcoral";
+
         }
         if (clickElement.classList.contains("delete")) {
             parent.removeChild(card);
-            updateDashboard();
         }
-    })
 
-    
+        updateDashboard();
+    })
 
 // finally all the dashboard update
 function updateDashboard() {
-
-    // totalCount.innerText = allContainer.children.length;
-    // interviewCount.innerText = interviewContainer.children.length;
-    // rejectedCount.innerText = rejectedContainer.children.length;
 
     const counts = {
         all: allContainer.children.length,
@@ -105,21 +106,30 @@ function updateDashboard() {
         rejected: rejectedContainer.children.length,
     };
 
-    totalCount.innerText = counts["all"]; 
+    totalCount.innerText = counts["all"];
     interviewCount.innerText = counts["interview"];
     rejectedCount.innerText = counts["rejected"];
+
 
     // availableJobsCount.innerText = counts.all;
     availableJobsCount.innerText = counts[defaultTab];
 
-    if(counts[defaultTab] < 1){
+    if (counts[defaultTab] < 1) {
         emptyContainer.classList.remove("hidden");
+
     }
-    else{
+    else {
         emptyContainer.classList.add("hidden");
+
     }
-
 }
-
 updateDashboard();
+changeTab(defaultTab);
+
+
+
+
+
+
+
 
